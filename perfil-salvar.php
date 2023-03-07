@@ -27,6 +27,7 @@ $nomeNovo = $pasta . round(microtime(true)) . "." . end($extensao);
 //upload da foto 
 move_uploaded_file($_FILES["foto"]["tmp_name"], $nomeNovo);
 
+$senha = md5($senha);
 
 $sql = "INSERT into tb_perfil (nome,email,profissao,descricao,instagram,twitter,facebook,linkedin,youtube,senha,foto,fundo) VALUES('$nome','$email','$profissao','$descricao','$instagram','$twitter','$facebook','$linkedin','$youtube','$senha','$nomeNovo','$fundo')";
 mysqli_query($conexao,$sql);
